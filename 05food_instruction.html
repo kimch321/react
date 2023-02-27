@@ -5,12 +5,11 @@
     <title>어떤 조리법</title>
 </head>
 <body>
-
+<div id="root1"></div>
+<div id="root2"></div>
 <script src="js/vendor/react/react@16.14.dev.js"></script>
 <script src="js/vendor/react/react-dom@16.14.dev.js"></script>
 <script src="js/vendor/babel.min.js"></script>
-
-
 
 <script type="text/babel">
     const Food1 = () => {
@@ -75,12 +74,12 @@
     //---------------
     ReactDOM.render(
         Food1(),
-        document.querySelector("body")
+        document.querySelector("#root1")
     )
 
     ReactDOM.render(
         Food2(),
-        document.querySelector("body")
+        document.querySelector("#root2")
     )
 
     // const makeFood =React.createElement("section",{id:"baked-salmon"},React.createElement("h1",null,"구운 연어"),
