@@ -10,47 +10,22 @@
   </style>
 </head>
 <body>
-<div id="root1"></div>
-<div id="root2"></div>
-<div id="root3"></div>
-<div id="root4"></div>
-<div id="root5"></div>
+<div id="root"></div>
+
 
 <script src="js/vendor/react/react@16.14.dev.js"></script>
 <script src="js/vendor/react/react-dom@16.14.dev.js"></script>
 <script>
-
+ const {render} = ReactDOM
   //createElement(요소, 속성, 내용, 자식요소)
   //render(대상요소, DOM요소)
-
-  ReactDOM.render(
-          React.createElement('h1',null,'Hello, World!'),
-          document.querySelector('#root1'));
-
-  ReactDOM.render(
-          React.createElement('h1', {className:'root2'},'Hello, World!'),
-          document.querySelector('#root2'));
-
-  ReactDOM.render (
-          // <h2 id='root3'><span>Hello</span>, World!!</h1>
-          React.createElement('h1', {className:'root2'},React.createElement('span',null,'Hello'),', World!'),
-          document.querySelector('#root3'));
-
-  ReactDOM.render(
-          //<h2><span>Hello</span>, <em>Wonderful</em> World!!</h1>
-          React.createElement('h1',null,React.createElement('span',null,'Hello'),React.createElement('em',null,' Wonderful'),' World!!'),
-          document.querySelector('#root4')
-  );
-
-  ReactDOM.render(
-      //<h3 class='abc' style='text-align:center' onclick='alert(`Hello, Again~!!`)'>
-      React.createElement('h3',{className:'abc',
-          style: {textAlign : 'center'},
-          onClick:()=>{alert(`hello again!`)}
-      },'Hello, Another World!!'),
-      document.querySelector('#root5')
-  )
-
+ const Hello1 = React.createElement('h1', {key:1},'Hello, World!')
+ const Hello2 = React.createElement('h1', {className:'root2', key:2},'Hello, World!')
+ const Hello3 = React.createElement('h1', {className:'root2',key:3},React.createElement('span',{key:3.1},'Hello'),', World!')
+ const Hello4 = React.createElement('h1', {key:4},React.createElement('span', {key:4.1},'Hello'),React.createElement('em', {key:4.2},' Wonderful'),' World!!')
+ const Hello5 = React.createElement('h3',{className:'abc', style: {textAlign : 'center'}, onClick:()=>{alert(`hello again!`)}},'Hello, Another World!!')
+    console.log(Hello5);
+ render([Hello1,Hello2,Hello3,Hello4,Hello5], document.querySelector('#root'));
 </script>
 </body>
 </html>

@@ -15,6 +15,7 @@
 <div id="root5"></div>
 <div id="root6"></div>
 <div id="root7"></div>
+<div id="root8"></div>
 
 <script src="js/vendor/react/react@16.14.dev.js"></script>
 <script src="js/vendor/react/react-dom@16.14.dev.js"></script>
@@ -58,7 +59,7 @@
 
     //---------------------------------------------------
     ReactDOM.render(
-        <Hello1 />,
+        React.createElement(Hello1,null,null),
         document.querySelector('#root1')
     );
 
@@ -80,6 +81,24 @@
         <Hello6 />,
         document.querySelector('#root6')
     )
+ //----------
+    const items = [
+        "연어 500그램",
+        "잣 1 컵",
+        "버터 상추 2 컵",
+        "옐로 스쿼시(Yellow Squash, 호박의 한 종류) 1개",
+        "올리브 오일 1/2 컵",
+        "마늘 3 쪽"
+    ]
+    function IngredientsList({items}) {
+        return React.createElement("ul",
+            {className:"ingredients"},
+            items.map((ingredient, i) => React.createElement("li",{key:i},ingredient)
+        )
+        );
+    }
+
+    ReactDOM.render(React.createElement(IngredientsList,{items:items},null),document.querySelector('#root8'))
 
 </script>
 </body>

@@ -10,12 +10,8 @@
   </style>
 </head>
 <body>
-<div id="root1"></div>
+<div id="root"></div>
 <div id="root2"></div>
-<div id="root3"></div>
-<div id="root4"></div>
-<div id="root5"></div>
-<div id="root6"></div>
 
 <script src="js/vendor/react/react@16.14.dev.js"></script>
 <script src="js/vendor/react/react-dom@16.14.dev.js"></script>
@@ -37,33 +33,13 @@
   //createElement(요소, 속성, 내용, 자식요소)
   //render(대상요소, DOM요소)
 
-  ReactDOM.render(
-          <h1>Hello,World!</h1>,
-          document.querySelector('#root1'));
-
-  ReactDOM.render(
-          <h1 className="root2">Hello!</h1>,
-          document.querySelector('#root2'))
-
-  ReactDOM.render (
-          <h2 id='root3'><span>Hello</span>, World!!</h2>,
-          document.querySelector('#root3'));
-
-  ReactDOM.render(
-          <h2><span>Hello</span>, <em>Wonderful</em> World!!</h2>,
-          document.querySelector('#root4')
-  );
-
-  ReactDOM.render(
-      <h3 className='abc' style={{textAlign:'center'}} onClick={()=> {
-          alert(`Hello, Again~!!`)
-      }}> Hello, Another World!</h3>,
-      // React.createElement('h3',{className:'abc',
-      //     style: {textAlign : 'center'},
-      //     onClick:()=>{alert(`hello again!`)}
-      // },'Hello, Another World!!'),
-      document.querySelector('#root5')
-  );
+    let {render} = ReactDOM
+    let hellos = [<h1>Hello,World!</h1>,<h1 className="root2">Hello!</h1>,<h2 id='root3'><span>Hello</span>, World!!</h2>,<h2><span>Hello</span>, <em>Wonderful</em> World!!</h2>,<h3 className='abc' style={{textAlign:'center'}} onClick={()=> {
+        alert(`Hello, Again~!!`)
+    }}> Hello, Another World!</h3>]
+  render(
+          hellos,
+          document.querySelector('#root'));
 
   let myClass = 'root2';
   const myText = () => 'World!';
@@ -72,7 +48,7 @@
           <div>10 X 10 = { 10 * 10 }</div>
           <span>Hello, my { myText() }</span>
       </p>,
-      document.querySelector('#root6')
+      document.querySelector('#root2')
   )
 
 </script>
